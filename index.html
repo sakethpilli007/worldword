@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorldWord — find the common word</title>
+  <meta name="description" content="Every day, 5 prompts. One word each. See how your answers compare to everyone else's." />
+  <meta property="og:title" content="WorldWord" />
+  <meta property="og:description" content="One word. Everyone plays. See if you think like the crowd." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <div class="logo">World<span>Word</span></div>
+      <div class="tagline" id="today-date"></div>
+    </div>
+    <div class="header-right">
+      <button class="icon-btn" id="how-to-play-btn" title="How to play">?</button>
+      <div class="streak" id="streak-display"></div>
+    </div>
+  </header>
+
+  <!-- HOW TO PLAY MODAL -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <button class="modal-close" id="modal-close">✕</button>
+      <h2 class="modal-title">How to play</h2>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="step-num">1</div>
+          <div class="step-text">You get <strong>5 prompts</strong> every day</div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">2</div>
+          <div class="step-text">For each one, type <strong>one word</strong> — your gut reaction</div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">3</div>
+          <div class="step-text">At <strong>8PM</strong>, the board reveals — see the most common answers</div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">4</div>
+          <div class="step-text">Score points by <strong>thinking like the crowd</strong></div>
+        </div>
+      </div>
+      <button class="primary-btn" id="modal-ok">let's play</button>
+    </div>
+  </div>
+
+  <!-- SUBMIT SCREEN -->
+  <main id="screen-submit" class="screen active">
+    <div class="progress-pills" id="progress-pills"></div>
+    <div class="prompt-card" id="prompt-card">
+      <div class="prompt-number" id="prompt-number"></div>
+      <h1 class="prompt-text" id="prompt-text">Loading...</h1>
+    </div>
+    <div class="input-wrapper">
+      <input
+        type="text" id="word-input"
+        placeholder="type one word..."
+        maxlength="24"
+        autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+      />
+      <button id="submit-btn">
+        <span id="submit-label">submit</span>
+      </button>
+    </div>
+    <div class="submit-meta">
+      <span id="player-count-display">
+        <span class="meta-dot"></span>
+        <span id="player-count">—</span> playing today
+      </span>
+      <span class="meta-sep">·</span>
+      <span>board at <strong>8PM</strong></span>
+    </div>
+  </main>
+
+  <!-- WAITING SCREEN -->
+  <main id="screen-waiting" class="screen">
+    <div class="waiting-header">
+      <div class="waiting-icon">✓</div>
+      <h2 class="waiting-title">All done for today!</h2>
+      <p class="waiting-sub">Board reveals at 8PM. Come back to see how you did.</p>
+    </div>
+    <div class="countdown-box">
+      <div class="countdown-label">time until reveal</div>
+      <div class="countdown-timer" id="countdown-timer">—</div>
+    </div>
+    <div class="waiting-summary" id="waiting-summary"></div>
+    <div class="waiting-footer">
+      <button class="primary-btn" id="share-pending-btn">📤 share that you played</button>
+      <div class="total-players">
+        <span id="waiting-total-count">—</span> people played today
+      </div>
+    </div>
+  </main>
+
+  <!-- REVEAL SCREEN -->
+  <main id="screen-reveal" class="screen">
+    <div class="reveal-header-bar">
+      <div class="reveal-score" id="reveal-score"></div>
+      <button class="share-btn-small" id="share-btn">📤 share</button>
+    </div>
+    <div class="reveal-tabs" id="reveal-tabs"></div>
+    <div id="reveal-panels"></div>
+  </main>
+
+  <!-- HISTORY -->
+  <div class="history-section">
+    <div class="history-header-row">
+      <p class="section-label">past days</p>
+    </div>
+    <div id="history-content"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-row">
+      <span class="footer-logo">World<span>Word</span></span>
+      <span class="footer-sep">·</span>
+      <span>5 prompts daily</span>
+      <span class="footer-sep">·</span>
+      <span>board reveals at 8PM</span>
+    </div>
+    <div class="footer-sub">think like the crowd · new words every day</div>
+  </footer>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/history.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
