@@ -111,7 +111,7 @@ function buildShareText(dateStr, answers, prompts, boards) {
     `WorldWord · ${d}`,
     emojis.join(''),
     `${onBoard}/${answers.length} on the board`,
-    'worldword.game'
+    'wordgame-gamma-three.vercel.app'
   ].join('\n');
 }
 
@@ -382,7 +382,7 @@ function showWaiting(prompts, answers, totalCount) {
 
   document.getElementById('share-pending-btn').onclick = () => {
     const d = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-    const text = `WorldWord · ${d}\nI played — board reveals at 8PM\nworldword.game`;
+    const text = `WorldWord · ${d}\nI played — board reveals at 8PM\nwordgame-gamma-three.vercel.app`;
     navigator.clipboard.writeText(text).then(() => showToast('copied!'));
   };
 }
