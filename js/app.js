@@ -5,9 +5,14 @@ const STORAGE_KEY = 'worldword_v2';
 const BLOCKED_WORDS = new Set([
   // slurs
   'nigger','nigga','faggot','fag','retard','chink','spic','kike','wetback','tranny',
-  // sexually explicit
+  // sexually explicit / adult content
   'fuck','shit','cunt','cock','dick','pussy','bitch','whore','slut','blowjob','handjob',
   'cumshot','jizz','dildo','penis','vagina','tits','boobs','ass','arse','asshole','arsehole',
+  'orgy','sex','sexy','nude','naked','porn','pornography','rape','anal','oral','erotic',
+  'erection','orgasm','masturbate','masturbation','ejaculate','grope','fondle','fetish',
+  'boner','horny','kinky','nudes','threesome','incest','pedophile','molestation',
+  // identity terms (keep game neutral)
+  'gay','lesbian','bisexual','transgender','queer','trans','homo','dyke','nonbinary',
   // general swearing
   'bastard','piss','crap','wank','twat','tosser','bollocks','shite','motherfucker',
   'bullshit','horseshit','dumbass','jackass','dipshit','shithead','fuckhead','fucker',
