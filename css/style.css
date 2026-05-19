@@ -28,6 +28,8 @@
 
 html, body {
   min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
@@ -48,9 +50,10 @@ body::after {
 }
 
 #app {
+  width: 100%;
   max-width: 540px;
   margin: 0 auto;
-  padding: 0 22px 40px;
+  padding: 0 18px 40px;
 }
 
 /* ── HEADER ── */
@@ -1033,7 +1036,17 @@ header {
 }
 
 @media (max-width: 400px) {
+  #app { padding: 0 14px 32px; }
   .prompt-text { font-size: 19px; }
   #word-input { font-size: 18px; }
-  .prompt-card { padding: 22px 18px 20px; }
+  .prompt-card { padding: 22px 16px 18px; }
+  .history-day { padding: 14px 14px; }
+  .countdown-timer { font-size: 32px; }
+}
+
+@media (max-width: 360px) {
+  #app { padding: 0 12px 28px; }
+  .logo { font-size: 18px; }
+  #submit-btn { min-width: 80px; padding: 13px 14px; font-size: 13px; }
+  .pill { padding: 4px 9px; font-size: 11px; }
 }
