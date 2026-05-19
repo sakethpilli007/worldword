@@ -25,7 +25,15 @@ function validateWord(word) {
   if (!word || word.length < 2) return 'at least 2 letters';
   if (word.length > 24) return 'too long';
   if (!/^[a-z]+$/.test(word)) return 'letters only';
-  if (BLOCKED_WORDS.has(word)) return 'word not allowed';
+  for (const blocked of BLOCKED_WORDS) {
+    // short blocked words (< 4 chars): exact match only to avoid false positives
+    // e.g. "ass" would wrongly block "class", "grass", "bass"
+    if (blocked.length < 4) {
+      if (word === blocked) return 'word not allowed';
+    } else {
+      if (word.includes(blocked)) return 'word not allowed';
+    }
+  }
   return null;
 }
 
