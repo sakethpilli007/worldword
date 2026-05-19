@@ -202,7 +202,7 @@ async function showReveal(prompts, answers) {
   }).length;
 
   const scoreEl = document.getElementById('reveal-score');
-  scoreEl.innerHTML = `<strong>${onBoardCount}/${prompts.length}</strong> on the board ${topCount > 0 ? `· <strong>${topCount}</strong> #1 ${topCount === 1 ? 'answer' : 'answers'}` : ''}`;
+  scoreEl.innerHTML = `<strong>${onBoardCount}/${prompts.length}</strong> on the board ${topCount > 0 ? `· <strong>${topCount}</strong> #1 ${topCount === 1 ? 'answer' : 'answers'}` : ''} <span class="live-badge">live</span>`;
 
   prompts.forEach((prompt, i) => {
     const word = answers[i];
@@ -382,7 +382,7 @@ function showWaiting(prompts, answers, totalCount) {
 
   document.getElementById('share-pending-btn').onclick = () => {
     const d = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-    const text = `WorldWord · ${d}\nI played — board reveals at 8PM\nwordgame-gamma-three.vercel.app`;
+    const text = `WorldWord · ${d}\nI played — see the live board!\nwordgame-gamma-three.vercel.app`;
     navigator.clipboard.writeText(text).then(() => showToast('copied!'));
   };
 }

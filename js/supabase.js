@@ -65,8 +65,6 @@ async function apiSubmitWord(promptId, word) {
 }
 
 async function apiGetBoard(promptId) {
-  if (!isRevealTime()) return null;
-
   const { data, error } = await db.rpc('get_board', { p_prompt_id: promptId });
   if (error || !data || data.length === 0) return null;
   return data;
