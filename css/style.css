@@ -1047,6 +1047,17 @@ header {
 @media (max-width: 360px) {
   #app { padding: 0 12px 28px; }
   .logo { font-size: 18px; }
-  #submit-btn { min-width: 80px; padding: 13px 14px; font-size: 13px; }
+  #submit-btn { min-width: 72px; padding: 13px 12px; font-size: 12px; }
   .pill { padding: 4px 9px; font-size: 11px; }
+}
+
+@media (max-width: 320px) {
+  #app { padding: 0 10px 24px; }
+  .input-wrapper { gap: 7px; }
+  #word-input { padding: 12px 12px; font-size: 17px; }
+  #submit-btn { min-width: 64px; padding: 12px 10px; font-size: 12px; }
+  .prompt-card { padding: 18px 14px 16px; }
+  .logo { font-size: 17px; }
+  .progress-pills { gap: 5px; }
+  .pill { padding: 4px 8px; font-size: 10px; }
 }
