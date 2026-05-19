@@ -3,11 +3,17 @@ const STORAGE_KEY = 'worldword_v2';
 // ── WORD VALIDATION ──
 
 const BLOCKED_WORDS = new Set([
-  // hard slurs
+  // slurs
   'nigger','nigga','faggot','fag','retard','chink','spic','kike','wetback','tranny',
   // sexually explicit
   'fuck','shit','cunt','cock','dick','pussy','bitch','whore','slut','blowjob','handjob',
-  'cumshot','jizz','dildo','penis','vagina',
+  'cumshot','jizz','dildo','penis','vagina','tits','boobs','ass','arse','asshole','arsehole',
+  // general swearing
+  'bastard','piss','crap','wank','twat','tosser','bollocks','shite','motherfucker',
+  'bullshit','horseshit','dumbass','jackass','dipshit','shithead','fuckhead','fucker',
+  'dammit','goddamn','goddammit',
+  // meta / bot answers
+  'claude','ai','chatgpt','openai','anthropic','gpt',
 ]);
 
 function validateWord(word) {
