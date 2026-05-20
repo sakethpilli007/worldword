@@ -23,6 +23,16 @@ function getOrCreateDeviceId() {
   return id;
 }
 
+async function apiGetPromptsByDay(day) {
+  const { data, error } = await db
+    .from('prompts')
+    .select('id, day, position, text')
+    .eq('day', day)
+    .order('position');
+  if (error || !data || data.length === 0) return null;
+  return data;
+}
+
 async function apiGetTodaysPrompts() {
   const today = getToday();
   const { data, error } = await db

@@ -430,7 +430,7 @@ function initModal() {
 
 // ── MAIN ──
 async function init() {
-  renderHistory();
+  loadHistory(); // non-blocking, populates history section async
   initModal();
 
   document.getElementById('today-date').textContent = formatDate(today());
